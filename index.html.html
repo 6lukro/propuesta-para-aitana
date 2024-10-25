@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Te quieres casar conmigo?</title>
+    <style>
+        /* Estilo general */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FFEBE8;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Contenedor del mensaje */
+        .container {
+            text-align: center;
+            color: #8B0000;
+            font-size: 2em;
+        }
+
+        /* Estilo del texto de la pregunta */
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo de los botones */
+        .button {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            margin: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .button-yes {
+            background-color: #FF6B6B;
+            color: white;
+        }
+        .button-no {
+            background-color: #D3D3D3;
+            color: #333;
+            position: relative;
+        }
+
+        /* Mensaje final */
+        .final-message {
+            display: none;
+            font-size: 1.8em;
+            color: #8B0000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="question">¿Te quieres casar conmigo, Aitana Rodriguez Gonzalez?</div>
+        <button class="button button-yes" onclick="showFinalMessage()">Sí</button>
+        <button class="button button-no" id="button-no" onmouseover="moveButton()">No</button>
+        <div class="final-message" id="final-message">Lo sabía, yo a ti también te quiero como la trucha al trucho ❤️</div>
+    </div>
+
+    <script>
+        function moveButton() {
+            // Genera una posición aleatoria para el botón "No"
+            const button = document.getElementById('button-no');
+            const x = Math.random() * (window.innerWidth - button.clientWidth);
+            const y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function showFinalMessage() {
+            // Muestra el mensaje final cuando se hace clic en "Sí"
+            document.querySelector('.question').style.display = 'none';
+            document.querySelector('.button-yes').style.display = 'none';
+            document.querySelector('.button-no').style.display = 'none';
+            document.getElementById('final-message').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
